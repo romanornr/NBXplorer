@@ -113,37 +113,37 @@ namespace NBXplorer.Altcoins.Viacoin
 
 		private static object RegisterLazy()
 		{
-			var port = 9333;
+			var port = 5223;
 			NetworkBuilder builder = new NetworkBuilder();
 			_Mainnet = builder.SetConsensus(new Consensus()
 			{
-				SubsidyHalvingInterval = 840000,
-				MajorityEnforceBlockUpgrade = 750,
-				MajorityRejectBlockOutdated = 950,
-				MajorityWindow = 1000,
-				BIP34Hash = new uint256("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf"),
-				PowLimit = new Target(new uint256("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")),
-				PowTargetTimespan = TimeSpan.FromSeconds(3.5 * 24 * 60 * 60),
-				PowTargetSpacing = TimeSpan.FromSeconds(2.5 * 60),
+				SubsidyHalvingInterval = 5223,
+				MajorityEnforceBlockUpgrade = 15000,
+				MajorityRejectBlockOutdated = 19000,
+				MajorityWindow = 20000,
+				BIP34Hash = new uint256("0x4e9b54001f9976049830128ec0331515eaabe35a70970d79971da1539a400ba1"),
+				PowLimit = new Target(new uint256("000001ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")),
+				PowTargetTimespan = TimeSpan.FromSeconds(14 * 24 * 60 * 60),
+				PowTargetSpacing = TimeSpan.FromSeconds(1 * 24),
 				PowAllowMinDifficultyBlocks = false,
 				PowNoRetargeting = false,
-				RuleChangeActivationThreshold = 6048,
-				MinerConfirmationWindow = 8064,
+				RuleChangeActivationThreshold = 8100,
+				MinerConfirmationWindow = 10800,
 				CoinbaseMaturity = 100,
-				HashGenesisBlock = new uint256("12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"),
+				HashGenesisBlock = new uint256("0x4e9b54001f9976049830128ec0331515eaabe35a70970d79971da1539a400ba1"),
 				GetPoWHash = GetPoWHash,
 				ViacoinWorkCalculation = true
 			})
-			.SetBase58Bytes(Base58Type.PUBKEY_ADDRESS, new byte[] { 48 })
-			.SetBase58Bytes(Base58Type.SCRIPT_ADDRESS, new byte[] { 50 })
-			.SetBase58Bytes(Base58Type.SECRET_KEY, new byte[] { 176 })
+			.SetBase58Bytes(Base58Type.PUBKEY_ADDRESS, new byte[] { 71 })
+			.SetBase58Bytes(Base58Type.SCRIPT_ADDRESS, new byte[] { 33 })
+			.SetBase58Bytes(Base58Type.SECRET_KEY, new byte[] { 199 })
 			.SetBase58Bytes(Base58Type.EXT_PUBLIC_KEY, new byte[] { 0x04, 0x88, 0xB2, 0x1E })
 			.SetBase58Bytes(Base58Type.EXT_SECRET_KEY, new byte[] { 0x04, 0x88, 0xAD, 0xE4 })
 			.SetBech32(Bech32Type.WITNESS_PUBKEY_ADDRESS, Encoders.Bech32("via"))
 			.SetBech32(Bech32Type.WITNESS_SCRIPT_ADDRESS, Encoders.Bech32("via"))
-			.SetMagic(0xdbb6c0fb)
+			.SetMagic(cbc6680f)
 			.SetPort(port)
-			.SetRPCPort(9332)
+			.SetRPCPort(5222)
 			.SetName("via-main")
 			.AddAlias("via-mainnet")
 			.AddAlias("viacoin-mainnet")
@@ -203,7 +203,7 @@ namespace NBXplorer.Altcoins.Viacoin
 			.BuildAndRegister();
 
 			builder = new NetworkBuilder();
-			port = 19444;
+			port = 15224;
 			_Regtest = builder.SetConsensus(new Consensus()
 			{
 				SubsidyHalvingInterval = 150,
@@ -221,16 +221,16 @@ namespace NBXplorer.Altcoins.Viacoin
 				CoinbaseMaturity = 100,
 				HashGenesisBlock = new uint256("f5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f"),
 				GetPoWHash = GetPoWHash,
-				LitecoinWorkCalculation = true
+				ViacoinWorkCalculation = true
 			})
 			.SetBase58Bytes(Base58Type.PUBKEY_ADDRESS, new byte[] { 111 })
-			.SetBase58Bytes(Base58Type.SCRIPT_ADDRESS, new byte[] { 58 })
+			.SetBase58Bytes(Base58Type.SCRIPT_ADDRESS, new byte[] { 196 })
 			.SetBase58Bytes(Base58Type.SECRET_KEY, new byte[] { 239 })
 			.SetBase58Bytes(Base58Type.EXT_PUBLIC_KEY, new byte[] { 0x04, 0x35, 0x87, 0xCF })
 			.SetBase58Bytes(Base58Type.EXT_SECRET_KEY, new byte[] { 0x04, 0x35, 0x83, 0x94 })
 			.SetBech32(Bech32Type.WITNESS_PUBKEY_ADDRESS, Encoders.Bech32("tvia"))
 			.SetBech32(Bech32Type.WITNESS_SCRIPT_ADDRESS, Encoders.Bech32("tvia"))
-			.SetMagic(0xdab5bffa)
+			.SetMagic(0x377b972d)
 			.SetPort(port)
 			.SetRPCPort(19332)
 			.SetName("via-reg")
