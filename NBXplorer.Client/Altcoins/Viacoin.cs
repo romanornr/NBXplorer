@@ -160,33 +160,33 @@ namespace NBXplorer.Altcoins.Viacoin
 			.BuildAndRegister();
 
 			builder = new NetworkBuilder();
-			port = 19335;
+			port = 25222;
 			_Testnet = builder.SetConsensus(new Consensus()
 			{
-				SubsidyHalvingInterval = 840000,
-				MajorityEnforceBlockUpgrade = 51,
-				MajorityRejectBlockOutdated = 75,
+				SubsidyHalvingInterval = 657000,
+				MajorityEnforceBlockUpgrade = 510,
+				MajorityRejectBlockOutdated = 750,
 				MajorityWindow = 1000,
-				PowLimit = new Target(new uint256("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")),
+				PowLimit = new Target(new uint256("00001fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")),
 				PowTargetTimespan = TimeSpan.FromSeconds(3.5 * 24 * 60 * 60),
-				PowTargetSpacing = TimeSpan.FromSeconds(2.5 * 60),
+				PowTargetSpacing = TimeSpan.FromSeconds(1 * 25),
 				PowAllowMinDifficultyBlocks = true,
 				PowNoRetargeting = false,
-				RuleChangeActivationThreshold = 1512,
-				MinerConfirmationWindow = 2016,
+				RuleChangeActivationThreshold = 2700,
+				MinerConfirmationWindow = 3600,
 				CoinbaseMaturity = 100,
-				HashGenesisBlock = new uint256("4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"),
+				HashGenesisBlock = new uint256("0x770aa712aa08fdcbdecc1c8df1b3e2d4e17a7cf6e63a28b785b32e74c96cb27d"),
 				GetPoWHash = GetPoWHash,
-				LitecoinWorkCalculation = true
+				ViacoinWorkCalculation = true
 			})
-			.SetBase58Bytes(Base58Type.PUBKEY_ADDRESS, new byte[] { 111 })
-			.SetBase58Bytes(Base58Type.SCRIPT_ADDRESS, new byte[] { 58 })
-			.SetBase58Bytes(Base58Type.SECRET_KEY, new byte[] { 239 })
+			.SetBase58Bytes(Base58Type.PUBKEY_ADDRESS, new byte[] { 127 })
+			.SetBase58Bytes(Base58Type.SCRIPT_ADDRESS, new byte[] { 196 })
+			.SetBase58Bytes(Base58Type.SECRET_KEY, new byte[] { 255 })
 			.SetBase58Bytes(Base58Type.EXT_PUBLIC_KEY, new byte[] { 0x04, 0x35, 0x87, 0xCF })
 			.SetBase58Bytes(Base58Type.EXT_SECRET_KEY, new byte[] { 0x04, 0x35, 0x83, 0x94 })
 			.SetBech32(Bech32Type.WITNESS_PUBKEY_ADDRESS, Encoders.Bech32("tvia"))
 			.SetBech32(Bech32Type.WITNESS_SCRIPT_ADDRESS, Encoders.Bech32("tvia"))
-			.SetMagic(0xf1c8d2fd)
+			.SetMagic(0x92efc5a9)
 			.SetPort(port)
 			.SetRPCPort(19332)
 			.SetName("via-test")
